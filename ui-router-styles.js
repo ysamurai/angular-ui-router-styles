@@ -30,7 +30,8 @@
       ////
 
       function activate() {
-        angular.element($document[0].head).append($compile(html)(scope));
+        var elem = $document[0].head || document.getElementsByTagName('head')[0];
+        angular.element(elem).append($compile(html)(scope));
         $rootScope.$on('$stateChangeSuccess', stateChangeSuccessCallback);
       }
 
